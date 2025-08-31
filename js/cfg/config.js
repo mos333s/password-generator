@@ -3,7 +3,7 @@ const CONFIG = {
         LOWERCASE: 'abcdefghijklmnopqrstuvwxyz',
         UPPERCASE: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
         NUMS: '0123456789',
-        SYMBOLS: '!@#$%^&*()_+=[]{}<>/?|',
+        SYMBOLS: '!@#$%^&*_-+=/?|()[]{}<>',
     },
 
     DEFAULT_SETTINGS : {
