@@ -1,6 +1,6 @@
-import { getAllowedChars } from "./helpers/getAllowedChars";
-import { shuffleString } from "./helpers/shuffleString";
-import { getRandomChars } from "./helpers/getRandomChars";
+import { getAllowedChars } from "./helpers/getAllowedChars.js";
+import { shuffleString } from "./helpers/shuffleString.js";
+import { getRandomChars } from "./helpers/getRandomChars.js";
 
 // Composes functions sequentially: f(g(x)) => pipe(g, f)(x)
 // Each function's output becomes next function's input

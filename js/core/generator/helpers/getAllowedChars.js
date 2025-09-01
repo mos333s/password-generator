@@ -1,5 +1,5 @@
-import { charSetOptions } from "../rules/charSetOptions";
-import { CONFIG } from '../../cfg/config';
+import { charSetOptions } from "../rules/charSetOptions.js";
+import { CONFIG } from '../../../cfg/config.js';
 
 // Gets array of character sets based on user settings
 export function getAllowedChars(settings) {

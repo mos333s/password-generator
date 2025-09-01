@@ -1,4 +1,4 @@
-const CONFIG = {
+export const CONFIG = {
     CHARACTER_SETS : {
         LOWERCASE: 'abcdefghijklmnopqrstuvwxyz',
         UPPERCASE: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
@@ -7,7 +7,7 @@ const CONFIG = {
     },
 
     DEFAULT_SETTINGS : {
-        length: 10,
+        length: 6,
         useLowerCase: true,
         useUpperCase: true,
         useNums: true,
@@ -16,6 +16,6 @@ const CONFIG = {
 
     LIMITS: {
         MIN_LENGTH: 6,
-        MAX_LENGTH: 25
+        MAX_LENGTH: 32
     }
 }

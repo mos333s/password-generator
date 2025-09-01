@@ -1,8 +1,8 @@
-import { lengthRules } from './rules/lengthRules'; 
-import { duplicatesRules } from './rules/duplicatesRules';
-import { charVarietyRules } from './rules/charVarietyRules';
-import { getDuplicates } from './helpers/getDuplicates';
-import { checkCharSets } from './helpers/checkCharSets';
+import { lengthRules } from './rules/lengthRules.js'; 
+import { duplicatesRules } from './rules/duplicatesRules.js';
+import { charVarietyRules } from './rules/charVarietyRules.js';
+import { getDuplicates } from './helpers/getDuplicates.js';
+import { checkCharSets } from './helpers/checkCharSets.js';
 
 // Returns score value based on length of generated password
 const scoreLength = str => {

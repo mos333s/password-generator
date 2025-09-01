@@ -1,4 +1,4 @@
-import { CONFIG } from '../../../cfg/config';
+import { CONFIG } from '../../../cfg/config.js';
 
 // Analyzes password string and returns count of unique character sets used
 export const checkCharSets = str => {
