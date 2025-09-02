@@ -1,0 +1,328 @@
+/*! modern-normalize v3.0.1 | MIT License | https://github.com/sindresorhus/modern-normalize */
+/*
+Document
+========
+*/
+/**
+Use a better box model (opinionated).
+*/
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/**
+1. Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)
+2. Correct the line height in all browsers.
+3. Prevent adjustments of font size after orientation changes in iOS.
+4. Use a more readable tab size (opinionated).
+*/
+html {
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"; /* 1 */
+  line-height: 1.15; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 3 */
+  tab-size: 4; /* 4 */
+}
+
+/*
+Sections
+========
+*/
+/**
+Remove the margin in all browsers.
+*/
+body {
+  margin: 0;
+}
+
+/*
+Text-level semantics
+====================
+*/
+/**
+Add the correct font weight in Chrome and Safari.
+*/
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+1. Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)
+2. Correct the odd 'em' font sizing in all browsers.
+*/
+code,
+kbd,
+samp,
+pre {
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
+Add the correct font size in all browsers.
+*/
+small {
+  font-size: 80%;
+}
+
+/**
+Prevent 'sub' and 'sup' elements from affecting the line height in all browsers.
+*/
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/*
+Tabular data
+============
+*/
+/**
+Correct table border color inheritance in Chrome and Safari. (https://issues.chromium.org/issues/40615503, https://bugs.webkit.org/show_bug.cgi?id=195016)
+*/
+table {
+  border-color: currentcolor;
+}
+
+/*
+Forms
+=====
+*/
+/**
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+*/
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+Correct the inability to style clickable types in iOS and Safari.
+*/
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+  appearance: button;
+  -webkit-appearance: button;
+}
+
+/**
+Remove the padding so developers are not caught out when they zero out 'fieldset' elements in all browsers.
+*/
+legend {
+  padding: 0;
+}
+
+/**
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+progress {
+  vertical-align: baseline;
+}
+
+/**
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+[type=search] {
+  appearance: textfield;
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to 'inherit' in Safari.
+*/
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/*
+Interactive
+===========
+*/
+/*
+Add the correct display in Chrome and Safari.
+*/
+summary {
+  display: list-item;
+}
+
+body {
+  background-color: #112a36;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+body .generator {
+  background-color: #071821;
+  border-radius: 6px;
+  width: min(90vw, 30rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+body .generator .generator__title {
+  font-size: 32px;
+  color: #fff;
+  text-align: center;
+}
+body .generator .generator__output {
+  background-color: #1c3c4c;
+  margin-left: 22px;
+  margin-right: 22px;
+  padding: 22px;
+  border-radius: 6px;
+  font-size: 24px;
+  color: #fff;
+  text-align: center;
+}
+body .generator .generator__label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #666171;
+  margin-left: 22px;
+}
+body .generator .generator__label .generator__length {
+  color: #fff;
+}
+body .generator .generator__slider-section {
+  background-color: #1c3c4c;
+  margin-left: 22px;
+  margin-right: 22px;
+  padding: 22px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+body .generator .generator__slider-section .generator__slider-min, body .generator .generator__slider-section .generator__slider-max {
+  font-size: 24px;
+  color: #fff;
+}
+body .generator .generator__slider-section .generator__slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  width: 100%;
+}
+body .generator .generator__slider-section .generator__slider::-webkit-slider-runnable-track {
+  background: #757575;
+  height: 5px;
+}
+body .generator .generator__slider-section .generator__slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #fff;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin-top: -0.625rem;
+}
+body .generator .generator__options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+body .generator .generator__options .generator__option {
+  background-color: #1c3c4c;
+  margin-left: 22px;
+  margin-right: 22px;
+  padding: 22px;
+  border-radius: 6px;
+  font-size: 24px;
+  color: #fff;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  cursor: pointer;
+}
+body .generator .generator__options .generator__option .generator__checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+body .generator .generator__options .generator__option::before {
+  content: "";
+  width: 3.5rem;
+  height: 2rem;
+  background-color: #ccc;
+  border-radius: 1rem;
+  transition: background-color 0.3s ease;
+  order: 2;
+}
+body .generator .generator__options .generator__option::after {
+  content: "";
+  position: absolute;
+  right: 3rem;
+  width: 1.7rem;
+  height: 1.7rem;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  order: 3;
+}
+body .generator .generator__options .generator__option:has(.generator__checkbox:checked)::before {
+  background-color: #5d68e2;
+}
+body .generator .generator__options .generator__option:has(.generator__checkbox:checked)::after {
+  transform: translateX(1.5rem);
+}
+body .generator .generator__button {
+  font-size: 24px;
+  color: #fff;
+  border-radius: 6px;
+  border: none;
+  background-color: #7352ac;
+  font-weight: bold;
+  margin: 22px;
+  padding: 22px;
+  display: block;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+body .generator .generator__button:hover {
+  background-color: #8468b6;
+}

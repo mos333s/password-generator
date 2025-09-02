@@ -1,0 +1,29 @@
+@mixin card($accent, $spacing, $border-radius){
+    background-color: $accent;
+    margin-left: $spacing;
+    margin-right: $spacing;
+    padding: $spacing;
+    border-radius: $border-radius;
+}
+
+@mixin text($font-size, $font-color) {
+    font-size: $font-size;
+    color: $font-color;
+}
+
+@mixin button($font-size, $font-color, $border-radius, $button-color, $spacing, $button-hover){
+    @include text($font-size, $font-color);
+    border-radius: $border-radius;
+    border: none;
+    background-color: $button-color;
+    font-weight: bold;
+    margin: $spacing;
+    padding: $spacing;
+    display: block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: $button-hover;
+    }
+}

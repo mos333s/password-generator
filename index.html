@@ -3,37 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/css/styles.css">
     <title>Password Generator</title>
 </head>
 <body>
-    <div class="pass-gen">
-        <h1 class="pass-gen__header">Password generator</h1>
-        <div class="pass-gen__password-output"></div>
+    <div class="generator">
+        <h1 class="generator__title">Password Generator</h1>
+        <div class="generator__output">CLICK GENERATE</div>
 
-        <label>LENGTH:<span class="pass-gen__length-value">6</span></label>
-        <input class="pass-gen__slider" type="range" min="6" max="32" value="6" >
-
-
-        <div class="pass-gen__container-inner">
-            <label>
-                <input class="pass-gen__checkbox" type="checkbox" name="lowercase" checked>
+        <label class="generator__label">LENGTH:<span class="generator__length">6</span></label>
+        <div class="generator__slider-section">
+            <span class="generator__slider-min">6</span>
+            <input class="generator__slider" type="range" min="6" max="32" value="6" >
+            <span class="generator__slider-max">32</span>
+        </div>
+        <label class="generator__label">SETTINGS</label>
+        <div class="generator__options">
+            <label class="generator__option">
                 Include Lowercase
-            </label><br>
-            <label>
-                <input class="pass-gen__checkbox" type="checkbox" name="uppercase">
+                <input class="generator__checkbox" type="checkbox" name="lowercase" checked>
+            </label>
+            <label class="generator__option">
                 Include Uppercase
-            </label><br>
-            <label>
-                <input class="pass-gen__checkbox" type="checkbox" name="nums" checked>
+                <input class="generator__checkbox" type="checkbox" name="uppercase">
+            </label>
+            <label class="generator__option">
                 Include Numbers
-            </label><br>
-            <label>
-                <input class="pass-gen__checkbox" type="checkbox" name="symbols">
+                <input class="generator__checkbox" type="checkbox" name="nums" checked>
+            </label>
+            <label class="generator__option">
                 Include Symbols
-            </label><br>
+                <input class="generator__checkbox" type="checkbox" name="symbols">
+            </label>
         </div>
 
-        <button class="pass-gen__button" type="submit">Generate Password</button>
+        <button class="generator__button" type="submit">GENERATE PASSWORD</button>
         
     </div>
     <script type="module" src="/js/app.js"></script>

@@ -1,0 +1,142 @@
+@use 'normalize';
+@use 'variables';
+@use 'mixins';
+
+body {
+background-color: variables.$primary;
+display: flex; 
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+
+    .generator {
+        background-color: variables.$secondary; 
+        border-radius: variables.$border-radius;
+        width: min(90vw, 30rem);
+        display: flex;
+        flex-direction: column;
+        gap: variables.$spacing-small;
+        
+
+        .generator__title {
+            font-size: 32px;
+            color: variables.$font-color;
+            text-align: center;
+        }
+
+        .generator__output {
+            @include mixins.card(variables.$accent, variables.$spacing, variables.$border-radius);
+            @include mixins.text(variables.$font-size, variables.$font-color);
+            text-align: center;
+        }
+
+        .generator__label {
+            font-size: 16px;
+            font-weight: bold;
+            color: #666171;
+            margin-left: variables.$spacing;
+
+            .generator__length {
+                color: variables.$font-color;
+            }
+        }
+
+        .generator__slider-section {
+            @include mixins.card(variables.$accent, variables.$spacing, variables.$border-radius);
+            display: flex;
+            flex-direction: row;
+            gap: variables.$spacing-small;
+
+            .generator__slider-min, .generator__slider-max {
+                @include mixins.text(variables.$font-size, variables.$font-color);
+            }
+
+            .generator__slider {
+                -webkit-appearance: none;
+                appearance: none;
+                background: transparent;
+                width: 100%;
+
+                &::-webkit-slider-runnable-track {
+                    background: #757575;
+                    height: 5px;
+                }
+
+                &::-webkit-slider-thumb {
+                   -webkit-appearance: none;
+                    appearance: none;
+                    background: #fff;
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 50%;
+                    margin-top: -0.625rem;
+                }      
+            }
+        }
+
+        .generator__options {
+            display: flex;
+            flex-direction: column;
+            gap: variables.$spacing-small;
+            
+            .generator__option {
+                @include mixins.card(variables.$accent, variables.$spacing, variables.$border-radius);
+                @include mixins.text(variables.$font-size, variables.$font-color);
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 1rem;
+                cursor: pointer;
+
+                .generator__checkbox {
+                    position: absolute;
+                    opacity: 0;
+                    width: 0;
+                    height: 0;
+                }
+
+                &::before {
+                    content: '';
+                    width: 3.5rem;
+                    height: 2rem;
+                    background-color: #ccc;
+                    border-radius: 1rem;
+                    transition: background-color 0.3s ease;
+                    order: 2;
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    right: 3rem;
+                    width: 1.7rem;
+                    height: 1.7rem;
+                    background-color: white;
+                    border-radius: 50%;
+                    transition: transform 0.3s ease;
+                    order: 3;
+                }
+                
+                &:has(.generator__checkbox:checked)::before {
+                    background-color: #5d68e2;
+                }
+
+                &:has(.generator__checkbox:checked)::after {
+                    transform: translateX(1.5rem);
+                }
+            }
+        }
+
+        .generator__button {
+            @include mixins.button(
+                variables.$font-size, 
+                variables.$font-color, 
+                variables.$border-radius, 
+                variables.$button-color, 
+                variables.$spacing, 
+                variables.$button-hover
+            );
+        }
+    }
+}

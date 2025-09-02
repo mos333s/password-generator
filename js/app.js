@@ -1,16 +1,16 @@
 import { generatePassword } from './core/generator/generator.js';
 
-const button = document.querySelector('.pass-gen__button');
+const button = document.querySelector('.generator__button');
 
-const lengthSlider = document.querySelector('.pass-gen__slider');
-const lengthDisplay = document.querySelector('.pass-gen__length-value');
+const lengthSlider = document.querySelector('.generator__slider');
+const lengthDisplay = document.querySelector('.generator__length');
 
 const upperCaseCheckbox = document.querySelector('input[name="uppercase"]');
 const lowerCaseCheckbox = document.querySelector('input[name="lowercase"]');
 const numsCheckbox = document.querySelector('input[name="nums"]');
 const symbolsCheckbox = document.querySelector('input[name="symbols"]');
 
-const output = document.querySelector('.pass-gen__password-output');
+const output = document.querySelector('.generator__output');
 
 button.addEventListener('click', () => {
     const currentSettings = {
