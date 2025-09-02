@@ -214,7 +214,24 @@ body .generator .generator__output {
   border-radius: 6px;
   font-size: 24px;
   color: #fff;
-  text-align: center;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
+}
+body .generator .generator__password-text {
+  white-space: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+body .generator .generator__copy-button {
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 body .generator .generator__label {
   font-size: 16px;
@@ -257,6 +274,7 @@ body .generator .generator__slider-section .generator__slider::-webkit-slider-th
   height: 24px;
   border-radius: 50%;
   margin-top: -0.625rem;
+  cursor: pointer;
 }
 body .generator .generator__options {
   display: flex;
@@ -325,4 +343,21 @@ body .generator .generator__button {
 }
 body .generator .generator__button:hover {
   background-color: #8468b6;
+}
+body .toast {
+  position: fixed;
+  background-color: #1c3c4c;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 16px;
+  color: #92fb13;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: 0.3s ease;
+  z-index: 1000;
+}
+body .toast.show {
+  opacity: 1;
 }

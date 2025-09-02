@@ -9,7 +9,12 @@
 <body>
     <div class="generator">
         <h1 class="generator__title">Password Generator</h1>
-        <div class="generator__output">CLICK GENERATE</div>
+        <div class="generator__output">
+            <span class="generator__password-text">CLICK GENERATE</span>
+            <button class="generator__copy-button">
+                <img src="images/copy.png" alt="copy" height="32" width="32">
+            </button>
+        </div>
 
         <label class="generator__label">LENGTH:<span class="generator__length">6</span></label>
         <div class="generator__slider-section">
@@ -40,6 +45,7 @@
         <button class="generator__button" type="submit">GENERATE PASSWORD</button>
         
     </div>
+    <div class="toast"></div>
     <script type="module" src="/js/app.js"></script>
 </body>
 </html>

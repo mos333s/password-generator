@@ -27,7 +27,26 @@ min-height: 100vh;
         .generator__output {
             @include mixins.card(variables.$accent, variables.$spacing, variables.$border-radius);
             @include mixins.text(variables.$font-size, variables.$font-color);
-            text-align: center;
+            display: flex;
+            flex-direction: row;
+            gap: variables.$spacing-small;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .generator__password-text {
+            white-space: nowrap;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .generator__copy-button {
+            background: transparent;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
         }
 
         .generator__label {
@@ -70,6 +89,7 @@ min-height: 100vh;
                     height: 24px;
                     border-radius: 50%;
                     margin-top: -0.625rem;
+                    cursor: pointer;
                 }      
             }
         }
@@ -138,5 +158,24 @@ min-height: 100vh;
                 variables.$button-hover
             );
         }
+    }
+
+    .toast {
+        position: fixed;
+        background-color: variables.$accent;
+        border-radius: variables.$border-radius;
+        padding: 10px;
+        font-size: 16px;
+        color: #92fb13;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: 0.3s ease;
+        z-index: 1000;
+    }
+
+    .toast.show {
+        opacity: 1;
     }
 }
