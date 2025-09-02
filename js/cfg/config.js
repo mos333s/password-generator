@@ -4,18 +4,8 @@ export const CONFIG = {
         UPPERCASE: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
         NUMS: '0123456789',
         SYMBOLS: '!@#$%^&*_-+=/?|()[]{}<>',
-    },
-
-    DEFAULT_SETTINGS : {
-        length: 6,
-        useLowerCase: true,
-        useUpperCase: true,
-        useNums: true,
-        useSymbols: true
-    },
-
-    LIMITS: {
-        MIN_LENGTH: 6,
-        MAX_LENGTH: 32
     }
 }
+
+export const WEAK_THRESHOLD = 40;
+export const MEDIUM_THRESHOLD = 66;

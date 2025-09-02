@@ -206,12 +206,23 @@ body .generator .generator__title {
   color: #fff;
   text-align: center;
 }
-body .generator .generator__output {
+body .generator .generator__output-wrapper {
   background-color: #1c3c4c;
   margin-left: 22px;
   margin-right: 22px;
   padding: 22px;
   border-radius: 6px;
+}
+body .generator .strength-weak {
+  border: 3px solid #ff0000;
+}
+body .generator .strength-medium {
+  border: 3px solid #ffdd66;
+}
+body .generator .strength-strong {
+  border: 3px solid #66cc66;
+}
+body .generator .generator__output {
   font-size: 24px;
   color: #fff;
   display: flex;
@@ -232,6 +243,21 @@ body .generator .generator__copy-button {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+body .generator .generator__validation-text {
+  font-size: 24px;
+  color: #fff;
+  font-weight: bold;
+  margin-left: 22px;
+}
+body .generator .text-weak {
+  color: #ff0000;
+}
+body .generator .text-medium {
+  color: #ffdd66;
+}
+body .generator .text-strong {
+  color: #66cc66;
 }
 body .generator .generator__label {
   font-size: 16px;

@@ -24,8 +24,17 @@ min-height: 100vh;
             text-align: center;
         }
 
-        .generator__output {
+        .generator__output-wrapper {
             @include mixins.card(variables.$accent, variables.$spacing, variables.$border-radius);
+        }
+
+        .strength-weak { border: 3px solid #ff0000;}
+
+        .strength-medium { border: 3px solid #ffdd66; }
+        
+        .strength-strong { border: 3px solid #66cc66; }
+
+        .generator__output {
             @include mixins.text(variables.$font-size, variables.$font-color);
             display: flex;
             flex-direction: row;
@@ -48,6 +57,18 @@ min-height: 100vh;
             justify-content: center;
             cursor: pointer;
         }
+
+        .generator__validation-text {
+            @include mixins.text(variables.$font-size, variables.$font-color);
+            font-weight: bold;
+            margin-left: variables.$spacing;
+        }
+
+        .text-weak { color: #ff0000; }
+
+        .text-medium { color: #ffdd66; }
+
+        .text-strong { color: #66cc66; }
 
         .generator__label {
             font-size: 16px;

@@ -1,17 +1,6 @@
 import { generatePassword } from './core/generator/generator.js';
-
-function showToast(message, delay = 3000) {
-    const toast = document.querySelector('.toast');
-    toast.textContent = message;
-
-    setTimeout(() => {
-        toast.classList.add('show');
-    }, 100);
-
-    setTimeout(() => {
-        toast.classList.remove('show');
-    }, delay);
-}
+import { validateStrength } from './core/validator/validator.js';
+import { WEAK_THRESHOLD, MEDIUM_THRESHOLD } from './cfg/config.js';
 
 const generateButton = document.querySelector('.generator__button');
 
@@ -27,6 +16,49 @@ const symbolsCheckbox = document.querySelector('input[name="symbols"]');
 
 const output = document.querySelector('.generator__password-text');
 
+const validationBorder = document.querySelector('.generator__output-wrapper');
+const validationMessage = document.querySelector('.generator__validation-text');
+
+const toast = document.querySelector('.toast');
+
+function showToast(message, delay = 3000) {
+    toast.textContent = message;
+
+    setTimeout(() => {
+        toast.classList.add('show');
+    }, 100);
+
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, delay);
+}
+
+function showPasswordStrength(password) {
+    const { score } = validateStrength(password);
+
+    validationBorder.classList.remove('strength-weak', 'strength-medium', 'strength-strong');
+
+    validationMessage.classList.remove('text-weak', 'text-medium', 'text-strong');
+
+    if(score <= WEAK_THRESHOLD) {
+        validationBorder.classList.add('strength-weak');
+        validationMessage.textContent = 'Password is weak';
+        validationMessage.classList.add('text-weak');
+    } else if(score > WEAK_THRESHOLD && score <= MEDIUM_THRESHOLD) {
+        validationBorder.classList.add('strength-medium');
+        validationMessage.textContent = 'Password is medium';
+        validationMessage.classList.add('text-medium');
+    } else {
+        validationBorder.classList.add('strength-strong');
+        validationMessage.textContent = 'Password is strong';
+        validationMessage.classList.add('text-strong');
+    }
+}
+
+lengthSlider.addEventListener('input', () => {
+    lengthDisplay.textContent = parseInt(lengthSlider.value);
+})
+
 generateButton.addEventListener('click', () => {
     const currentSettings = {
         length: parseInt(lengthSlider.value),
@@ -38,15 +70,13 @@ generateButton.addEventListener('click', () => {
     
     const password = generatePassword(currentSettings);
     output.textContent = password;
-})
 
-lengthSlider.addEventListener('input', () => {
-    lengthDisplay.textContent = parseInt(lengthSlider.value);
+    showPasswordStrength(password);
 })
 
 copyButton.addEventListener('click', () => {
     if(output.textContent === 'CLICK GENERATE') {
-        showToast('Press GENERATE PASSWORD first');
+        showToast('Password not generated');
     } else {
         navigator.clipboard.writeText(output.textContent);
         showToast('Copied!');
