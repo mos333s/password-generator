@@ -186,32 +186,77 @@ summary {
   display: list-item;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   background-color: #112a36;
+  width: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
 }
 body .generator {
   background-color: #071821;
   border-radius: 6px;
   width: min(90vw, 30rem);
+  max-height: fit-content;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
-body .generator .generator__title {
+@media (min-width: 481px) and (max-width: 768px) {
+  body .generator {
+    width: 85%;
+  }
+}
+@media (max-width: 480px) {
+  body .generator {
+    width: 100%;
+  }
+}
+body .generator__title {
   font-size: 32px;
   color: #fff;
   text-align: center;
+  margin-top: 16px;
 }
-body .generator .generator__output-wrapper {
+@media (min-width: 481px) and (max-width: 768px) {
+  body .generator__title {
+    font-size: 26px;
+    margin-top: 15px;
+  }
+}
+@media (max-width: 480px) {
+  body .generator__title {
+    font-size: 24px;
+    margin-top: 14px;
+  }
+}
+body .generator__output-wrapper {
   background-color: #1c3c4c;
-  margin-left: 22px;
-  margin-right: 22px;
-  padding: 22px;
+  margin-left: 16px;
+  margin-right: 16px;
+  padding: 16px;
   border-radius: 6px;
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  body .generator__output-wrapper {
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 15px;
+  }
+}
+@media (max-width: 480px) {
+  body .generator__output-wrapper {
+    margin-left: 14px;
+    margin-right: 14px;
+    padding: 14px;
+  }
 }
 body .generator .strength-weak {
   border: 3px solid #ff0000;
@@ -222,7 +267,7 @@ body .generator .strength-medium {
 body .generator .strength-strong {
   border: 3px solid #66cc66;
 }
-body .generator .generator__output {
+body .generator__output {
   font-size: 24px;
   color: #fff;
   display: flex;
@@ -231,12 +276,22 @@ body .generator .generator__output {
   justify-content: space-between;
   align-items: center;
 }
-body .generator .generator__password-text {
+@media (min-width: 481px) and (max-width: 768px) {
+  body .generator__output {
+    font-size: 22px;
+  }
+}
+@media (max-width: 480px) {
+  body .generator__output {
+    font-size: 20px;
+  }
+}
+body .generator__password-text {
   white-space: nowrap;
   overflow-x: auto;
   scrollbar-width: none;
 }
-body .generator .generator__copy-button {
+body .generator__copy-button {
   background: transparent;
   border: none;
   display: flex;
@@ -244,11 +299,21 @@ body .generator .generator__copy-button {
   justify-content: center;
   cursor: pointer;
 }
-body .generator .generator__validation-text {
+body .generator__validation-text {
   font-size: 24px;
   color: #fff;
   font-weight: bold;
-  margin-left: 22px;
+  margin-left: 16px;
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  body .generator__validation-text {
+    font-size: 22px;
+  }
+}
+@media (max-width: 480px) {
+  body .generator__validation-text {
+    font-size: 20px;
+  }
 }
 body .generator .text-weak {
   color: #ff0000;
@@ -259,40 +324,74 @@ body .generator .text-medium {
 body .generator .text-strong {
   color: #66cc66;
 }
-body .generator .generator__label {
+body .generator__label {
   font-size: 16px;
   font-weight: bold;
   color: #666171;
-  margin-left: 22px;
+  margin-left: 16px;
 }
-body .generator .generator__label .generator__length {
+@media (min-width: 481px) and (max-width: 768px) {
+  body .generator__label {
+    font-size: 14px;
+  }
+}
+@media (max-width: 480px) {
+  body .generator__label {
+    font-size: 12px;
+  }
+}
+body .generator__label .generator__length {
   color: #fff;
 }
-body .generator .generator__slider-section {
+body .generator__slider-section {
   background-color: #1c3c4c;
-  margin-left: 22px;
-  margin-right: 22px;
-  padding: 22px;
+  margin-left: 16px;
+  margin-right: 16px;
+  padding: 16px;
   border-radius: 6px;
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
 }
-body .generator .generator__slider-section .generator__slider-min, body .generator .generator__slider-section .generator__slider-max {
+@media (min-width: 481px) and (max-width: 768px) {
+  body .generator__slider-section {
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 15px;
+  }
+}
+@media (max-width: 480px) {
+  body .generator__slider-section {
+    margin-left: 14px;
+    margin-right: 14px;
+    padding: 14px;
+  }
+}
+body .generator__slider-section .generator__slider-min, body .generator__slider-section .generator__slider-max {
   font-size: 24px;
   color: #fff;
 }
-body .generator .generator__slider-section .generator__slider {
+@media (min-width: 481px) and (max-width: 768px) {
+  body .generator__slider-section .generator__slider-min, body .generator__slider-section .generator__slider-max {
+    font-size: 22px;
+  }
+}
+@media (max-width: 480px) {
+  body .generator__slider-section .generator__slider-min, body .generator__slider-section .generator__slider-max {
+    font-size: 20px;
+  }
+}
+body .generator__slider-section .generator__slider {
   -webkit-appearance: none;
   appearance: none;
   background: transparent;
   width: 100%;
 }
-body .generator .generator__slider-section .generator__slider::-webkit-slider-runnable-track {
+body .generator__slider-section .generator__slider::-webkit-slider-runnable-track {
   background: #757575;
   height: 5px;
 }
-body .generator .generator__slider-section .generator__slider::-webkit-slider-thumb {
+body .generator__slider-section .generator__slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   background: #fff;
@@ -302,16 +401,16 @@ body .generator .generator__slider-section .generator__slider::-webkit-slider-th
   margin-top: -0.625rem;
   cursor: pointer;
 }
-body .generator .generator__options {
+body .generator__options {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
-body .generator .generator__options .generator__option {
+body .generator__options .generator__option {
   background-color: #1c3c4c;
-  margin-left: 22px;
-  margin-right: 22px;
-  padding: 22px;
+  margin-left: 16px;
+  margin-right: 16px;
+  padding: 16px;
   border-radius: 6px;
   font-size: 24px;
   color: #fff;
@@ -322,13 +421,29 @@ body .generator .generator__options .generator__option {
   gap: 1rem;
   cursor: pointer;
 }
-body .generator .generator__options .generator__option .generator__checkbox {
+@media (min-width: 481px) and (max-width: 768px) {
+  body .generator__options .generator__option {
+    font-size: 22px;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 15px;
+  }
+}
+@media (max-width: 480px) {
+  body .generator__options .generator__option {
+    font-size: 20px;
+    margin-left: 14px;
+    margin-right: 14px;
+    padding: 14px;
+  }
+}
+body .generator__options .generator__option .generator__checkbox {
   position: absolute;
   opacity: 0;
   width: 0;
   height: 0;
 }
-body .generator .generator__options .generator__option::before {
+body .generator__options .generator__option::before {
   content: "";
   width: 3.5rem;
   height: 2rem;
@@ -337,10 +452,10 @@ body .generator .generator__options .generator__option::before {
   transition: background-color 0.3s ease;
   order: 2;
 }
-body .generator .generator__options .generator__option::after {
+body .generator__options .generator__option::after {
   content: "";
   position: absolute;
-  right: 3rem;
+  right: 2.5rem;
   width: 1.7rem;
   height: 1.7rem;
   background-color: white;
@@ -348,27 +463,37 @@ body .generator .generator__options .generator__option::after {
   transition: transform 0.3s ease;
   order: 3;
 }
-body .generator .generator__options .generator__option:has(.generator__checkbox:checked)::before {
+body .generator__options .generator__option:has(.generator__checkbox:checked)::before {
   background-color: #5d68e2;
 }
-body .generator .generator__options .generator__option:has(.generator__checkbox:checked)::after {
-  transform: translateX(1.5rem);
+body .generator__options .generator__option:has(.generator__checkbox:checked)::after {
+  transform: translateX(1.3rem);
 }
-body .generator .generator__button {
+body .generator__button {
   font-size: 24px;
   color: #fff;
   border-radius: 6px;
   border: none;
   background-color: #7352ac;
   font-weight: bold;
-  margin: 22px;
-  padding: 22px;
+  margin: 16px;
+  padding: 16px;
   display: block;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-body .generator .generator__button:hover {
+body .generator__button:hover {
   background-color: #8468b6;
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  body .generator__button {
+    font-size: 22px;
+  }
+}
+@media (max-width: 480px) {
+  body .generator__button {
+    font-size: 20px;
+  }
 }
 body .toast {
   position: fixed;

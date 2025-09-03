@@ -1,3 +1,19 @@
+// Breakpoints
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+
+@mixin mobile {
+    @media (max-width: #{$breakpoint-mobile}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: #{$breakpoint-mobile + 1px}) and (max-width: #{$breakpoint-tablet}) {
+        @content;
+    }
+}
+
 @mixin card($accent, $spacing, $border-radius){
     background-color: $accent;
     margin-left: $spacing;

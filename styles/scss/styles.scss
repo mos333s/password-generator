@@ -2,30 +2,69 @@
 @use 'variables';
 @use 'mixins';
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
 background-color: variables.$primary;
+width: 100%;
+height: 100vh;
 display: flex; 
 justify-content: center;
 align-items: center;
-min-height: 100vh;
 
     .generator {
         background-color: variables.$secondary; 
         border-radius: variables.$border-radius;
         width: min(90vw, 30rem);
+        max-height: fit-content;
         display: flex;
         flex-direction: column;
         gap: variables.$spacing-small;
+
+        @include mixins.tablet {
+            width: 85%;
+        }
+
+        @include mixins.mobile {
+            width: 100%;
+        }
         
 
-        .generator__title {
+        &__title {
             font-size: 32px;
             color: variables.$font-color;
             text-align: center;
+            margin-top: variables.$spacing;
+
+            @include mixins.tablet {
+                font-size: 26px;
+                margin-top: variables.$spacing-tablet;
+            }
+
+            @include mixins.mobile {
+                font-size: 24px;
+                margin-top: variables.$spacing-mobile;
+            }
         }
 
-        .generator__output-wrapper {
+        &__output-wrapper {
             @include mixins.card(variables.$accent, variables.$spacing, variables.$border-radius);
+
+            @include mixins.tablet {
+                margin-left: variables.$spacing-tablet;
+                margin-right: variables.$spacing-tablet;
+                padding: variables.$spacing-tablet;
+            }
+            
+            @include mixins.mobile {
+                margin-left: variables.$spacing-mobile;
+                margin-right: variables.$spacing-mobile;
+                padding: variables.$spacing-mobile;
+            }
         }
 
         .strength-weak { border: 3px solid #ff0000;}
@@ -34,22 +73,30 @@ min-height: 100vh;
         
         .strength-strong { border: 3px solid #66cc66; }
 
-        .generator__output {
+        &__output {
             @include mixins.text(variables.$font-size, variables.$font-color);
             display: flex;
             flex-direction: row;
             gap: variables.$spacing-small;
             justify-content: space-between;
             align-items: center;
+
+            @include mixins.tablet {
+                font-size: variables.$font-size-tablet;
+            }
+
+            @include mixins.mobile {
+                font-size: variables.$font-size-mobile;
+            }
         }
 
-        .generator__password-text {
+        &__password-text {
             white-space: nowrap;
             overflow-x: auto;
             scrollbar-width: none;
         }
 
-        .generator__copy-button {
+        &__copy-button {
             background: transparent;
             border: none;
             display: flex;
@@ -58,10 +105,18 @@ min-height: 100vh;
             cursor: pointer;
         }
 
-        .generator__validation-text {
+        &__validation-text {
             @include mixins.text(variables.$font-size, variables.$font-color);
             font-weight: bold;
             margin-left: variables.$spacing;
+
+            @include mixins.tablet {
+                font-size: variables.$font-size-tablet;
+            }
+
+            @include mixins.mobile {
+                font-size: variables.$font-size-mobile;
+            }
         }
 
         .text-weak { color: #ff0000; }
@@ -70,25 +125,53 @@ min-height: 100vh;
 
         .text-strong { color: #66cc66; }
 
-        .generator__label {
+        &__label {
             font-size: 16px;
             font-weight: bold;
             color: #666171;
             margin-left: variables.$spacing;
+
+            @include mixins.tablet {
+                font-size: 14px;
+            }
+
+            @include mixins.mobile {
+                font-size: 12px;
+            }
 
             .generator__length {
                 color: variables.$font-color;
             }
         }
 
-        .generator__slider-section {
+        &__slider-section {
             @include mixins.card(variables.$accent, variables.$spacing, variables.$border-radius);
             display: flex;
             flex-direction: row;
             gap: variables.$spacing-small;
 
+            @include mixins.tablet {
+                margin-left: variables.$spacing-tablet;
+                margin-right: variables.$spacing-tablet;
+                padding: variables.$spacing-tablet;
+            }
+
+            @include mixins.mobile {
+                margin-left: variables.$spacing-mobile;
+                margin-right: variables.$spacing-mobile;
+                padding: variables.$spacing-mobile;
+            }
+
             .generator__slider-min, .generator__slider-max {
                 @include mixins.text(variables.$font-size, variables.$font-color);
+
+                @include mixins.tablet {
+                    font-size: variables.$font-size-tablet;
+                }
+
+                @include mixins.mobile {
+                    font-size: variables.$font-size-mobile;
+                }
             }
 
             .generator__slider {
@@ -115,7 +198,7 @@ min-height: 100vh;
             }
         }
 
-        .generator__options {
+        &__options {
             display: flex;
             flex-direction: column;
             gap: variables.$spacing-small;
@@ -129,6 +212,20 @@ min-height: 100vh;
                 justify-content: space-between;
                 gap: 1rem;
                 cursor: pointer;
+
+                @include mixins.tablet {
+                    font-size: variables.$font-size-tablet;
+                    margin-left: variables.$spacing-tablet;
+                    margin-right: variables.$spacing-tablet;
+                    padding: variables.$spacing-tablet;
+                }
+
+                @include mixins.mobile {
+                    font-size: variables.$font-size-mobile;
+                    margin-left: variables.$spacing-mobile;
+                    margin-right: variables.$spacing-mobile;
+                    padding: variables.$spacing-mobile;
+                }
 
                 .generator__checkbox {
                     position: absolute;
@@ -150,7 +247,7 @@ min-height: 100vh;
                 &::after {
                     content: '';
                     position: absolute;
-                    right: 3rem;
+                    right: 2.5rem;
                     width: 1.7rem;
                     height: 1.7rem;
                     background-color: white;
@@ -164,12 +261,12 @@ min-height: 100vh;
                 }
 
                 &:has(.generator__checkbox:checked)::after {
-                    transform: translateX(1.5rem);
+                    transform: translateX(1.3rem);
                 }
             }
         }
 
-        .generator__button {
+        &__button {
             @include mixins.button(
                 variables.$font-size, 
                 variables.$font-color, 
@@ -178,6 +275,14 @@ min-height: 100vh;
                 variables.$spacing, 
                 variables.$button-hover
             );
+
+            @include mixins.tablet {
+                font-size: variables.$font-size-tablet;
+            }
+
+            @include mixins.mobile {
+                font-size: variables.$font-size-mobile;
+            }
         }
     }
 
