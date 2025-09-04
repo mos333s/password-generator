@@ -388,7 +388,7 @@ body .generator__slider-section .generator__slider {
   width: 100%;
 }
 body .generator__slider-section .generator__slider::-webkit-slider-runnable-track {
-  background: #757575;
+  background: var(--track-bg, #757575);
   height: 5px;
 }
 body .generator__slider-section .generator__slider::-webkit-slider-thumb {

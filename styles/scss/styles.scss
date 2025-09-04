@@ -181,7 +181,7 @@ align-items: center;
                 width: 100%;
 
                 &::-webkit-slider-runnable-track {
-                    background: #757575;
+                    background: var(--track-bg, #757575);
                     height: 5px;
                 }
 

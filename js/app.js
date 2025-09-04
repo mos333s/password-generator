@@ -2,25 +2,27 @@ import { generatePassword } from './core/generator/generator.js';
 import { validateStrength } from './core/validator/validator.js';
 import { WEAK_THRESHOLD, MEDIUM_THRESHOLD } from './cfg/config.js';
 
+// DOM elements references
 const generateButton = document.querySelector('.generator__button');
-
 const copyButton = document.querySelector('.generator__copy-button');
-
 const lengthSlider = document.querySelector('.generator__slider');
 const lengthDisplay = document.querySelector('.generator__length');
 
+// Password configuration checkboxes
 const upperCaseCheckbox = document.querySelector('input[name="uppercase"]');
 const lowerCaseCheckbox = document.querySelector('input[name="lowercase"]');
 const numsCheckbox = document.querySelector('input[name="nums"]');
 const symbolsCheckbox = document.querySelector('input[name="symbols"]');
 
+// Password display and validation references
 const output = document.querySelector('.generator__password-text');
-
 const validationBorder = document.querySelector('.generator__output-wrapper');
 const validationMessage = document.querySelector('.generator__validation-text');
 
+// Toast notification element
 const toast = document.querySelector('.toast');
 
+// Function that displays temorary toast notification
 function showToast(message, delay = 3000) {
     toast.textContent = message;
 
@@ -33,6 +35,7 @@ function showToast(message, delay = 3000) {
     }, delay);
 }
 
+// Function that shows and update password strength
 function showPasswordStrength(password) {
     const { score } = validateStrength(password);
 
@@ -55,10 +58,22 @@ function showPasswordStrength(password) {
     }
 }
 
-lengthSlider.addEventListener('input', () => {
-    lengthDisplay.textContent = parseInt(lengthSlider.value);
-})
+// Update slider track gradient and length display
+function updateSlider() {
+    const min = parseInt(lengthSlider.min);
+    const max = parseInt(lengthSlider.max);
+    const value = parseInt(lengthSlider.value);
+    const percentage = ((value - min) / (max - min)) * 100;
+    lengthSlider.style.setProperty('--track-bg', `linear-gradient(to right, #7352ac ${percentage}%, #757575 ${percentage}%)`);
 
+    lengthDisplay.textContent = value;
+    
+}
+
+// Event listener for slider input changes
+lengthSlider.addEventListener('input', updateSlider);
+
+// Generate password on button click
 generateButton.addEventListener('click', () => {
     const currentSettings = {
         length: parseInt(lengthSlider.value),
@@ -74,6 +89,7 @@ generateButton.addEventListener('click', () => {
     showPasswordStrength(password);
 })
 
+// Copy password to clipboard
 copyButton.addEventListener('click', () => {
     if(output.textContent === 'CLICK GENERATE') {
         showToast('Password not generated');
