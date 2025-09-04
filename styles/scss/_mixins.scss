@@ -1,19 +1,28 @@
 // Breakpoints
-$breakpoint-mobile: 480px;
-$breakpoint-tablet: 768px;
+$breakpoint-mobile: 480px; // Maximum width for mobile devices
+$breakpoint-tablet: 768px; // Maximum width for tablet devices
 
+// Mobile media query mixin
+// Applies styles for screens up to mobile breakpoint
 @mixin mobile {
     @media (max-width: #{$breakpoint-mobile}) {
         @content;
     }
 }
 
+// Tablet media query mixin
+// Applies styles for screens up to tablet breakpoint
 @mixin tablet {
     @media (min-width: #{$breakpoint-mobile + 1px}) and (max-width: #{$breakpoint-tablet}) {
         @content;
     }
 }
 
+// Card component styling mixin
+// Creates a consistent card layout with spacing and borders
+// @param $accent - background color for the card
+// @param $spacing - margin and padding values
+// @param $border-radius - border radius value
 @mixin card($accent, $spacing, $border-radius){
     background-color: $accent;
     margin-left: $spacing;
@@ -22,11 +31,23 @@ $breakpoint-tablet: 768px;
     border-radius: $border-radius;
 }
 
+// Text styling mixin
+// Provides consistent typography settings
+// @param $font-size - font size value
+// @param $font-color - font color value
 @mixin text($font-size, $font-color) {
     font-size: $font-size;
     color: $font-color;
 }
 
+// Button component styling mixin
+// Creates a reusable button with hover effects
+// @param $font-size - button text size
+// @param $font-color - button text color  
+// @param $border-radius - button corner rounding
+// @param $button-color - primary button background color
+// @param $spacing - margin and padding values
+// @param $button-hover - background color on hover state
 @mixin button($font-size, $font-color, $border-radius, $button-color, $spacing, $button-hover){
     @include text($font-size, $font-color);
     border-radius: $border-radius;
